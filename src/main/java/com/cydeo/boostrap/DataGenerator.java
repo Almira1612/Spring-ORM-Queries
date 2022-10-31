@@ -9,8 +9,9 @@ public class DataGenerator implements CommandLineRunner {
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
 
-    public DataGenerator(RegionRepository regionRepository) {
+    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository) {
         this.regionRepository = regionRepository;
+        this.departmentRepository = departmentRepository;
     }
 
     @Override
