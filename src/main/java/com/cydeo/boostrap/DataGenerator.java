@@ -1,6 +1,7 @@
 package com.cydeo.boostrap;
 
 import com.cydeo.repository.DepartmentRepository;
+import com.cydeo.repository.EmployeeRepository;
 import com.cydeo.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
 
@@ -8,10 +9,12 @@ public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
     private final DepartmentRepository departmentRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository) {
+    public DataGenerator(RegionRepository regionRepository, DepartmentRepository departmentRepository, EmployeeRepository employeeRepository) {
         this.regionRepository = regionRepository;
         this.departmentRepository = departmentRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @Override
@@ -36,5 +39,13 @@ public class DataGenerator implements CommandLineRunner {
 
 
         System.out.println("-----------------DEPARTMENT END-----------------");
+
+        System.out.println("-----------------EMPLOYEE START-----------------");
+
+        System.out.println("getEmployeeDetail:" + employeeRepository.getEmployeeDetail());
+
+
+
+        System.out.println("-----------------EMPLOYEE END-----------------");
     }
 }

@@ -1,12 +1,13 @@
 package com.cydeo.repository;
 
 import com.cydeo.entity.Department;
+import com.cydeo.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface DepartmentRepository  extends JpaRepository<Department, Long> {
+public interface DepartmentRepository extends JpaRepository<Department,String> {
 
     //Display all Departments in the furniture department
     List<Department> findByDepartment(String department);
@@ -24,9 +25,8 @@ public interface DepartmentRepository  extends JpaRepository<Department, Long> {
 
     List<Department> readDepartmentByDivision(String division);
 
-    @Query(nativeQuery = true)
-    List<Department> retrieveDepartmentByDivisionContain(String pattern);
-
+//    @Query(nativeQuery = true)
+//    List<Department> retrieveDepartmentByDivisionContain(String pattern);
 
 
 }
