@@ -40,6 +40,12 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     //Display all employees that do not have email address
     List<Employee> findByEmailIsNull();
 
+    //JPQL
     @Query("SELECT e FROM Employee e WHERE e.email = 'dtrail8@tamu.edu'")
     Employee getEmployeeDetail();
+
+    @Query("SELECT e.salary FROM Employee e WHERE e.email = 'bhendricksi@privacy.gov.au'")
+    Integer getEmployeeSalary();
+
+
 }

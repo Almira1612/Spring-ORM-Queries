@@ -4,7 +4,11 @@ import com.cydeo.repository.DepartmentRepository;
 import com.cydeo.repository.EmployeeRepository;
 import com.cydeo.repository.RegionRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+@Component
+@Transactional
 public class DataGenerator implements CommandLineRunner {
 
     private final RegionRepository regionRepository;
@@ -43,7 +47,7 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("-----------------EMPLOYEE START-----------------");
 
         System.out.println("getEmployeeDetail:" + employeeRepository.getEmployeeDetail());
-
+        System.out.println("getEmployeeSalary:" + employeeRepository.getEmployeeSalary());
 
 
         System.out.println("-----------------EMPLOYEE END-----------------");
