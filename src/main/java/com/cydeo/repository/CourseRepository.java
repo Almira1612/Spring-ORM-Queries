@@ -15,4 +15,10 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     //Checks if a course with the provided name exists. Return true if course exists, false otherwise
     boolean existsByName(String name);
+    
+    //Return the count of courses for the provided category
+    int countByCategory(String category);
+    
+    //Find all courses that start with the provided course name
+    
 }
