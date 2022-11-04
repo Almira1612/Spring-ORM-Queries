@@ -60,6 +60,8 @@ public class DataGenerator implements CommandLineRunner {
         System.out.println("---------------------------");
 
         courseRepository.findByCategoryOrderByName("Spring").forEach(System.out::println);
+        System.out.println("---------------------------");
+        courseRepository.streamByCategory("Spring").forEach(System.out::println);
 
         System.out.println("-----------------COURSE END-----------------");
     }
