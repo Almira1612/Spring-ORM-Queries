@@ -4,6 +4,7 @@ import com.cydeo.entity.Employee;
 import org.springframework.beans.factory.parsing.EmptyReaderEventListener;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -94,5 +95,14 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     //Sorting in descending order
     @Query("SELECT e FROM Employee e ORDER BY e.salary DESC")
     List<Employee> getEmployeeSalaryOrderDesc();
+
+    //Native query
+
+    @Query(value = "SELECT * FROM employee WHERE salary ?1", nativeQuery = true)
+    List<Employee> readEmployeeDetailBySalary(int salary);
+
+    @Query("select e from Employee e where e.salary = :salary")
+    List<Employee> getEmployeeSalary(@Param("salary") int salary);
+
 
 }
